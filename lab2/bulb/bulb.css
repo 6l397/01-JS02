@@ -1,0 +1,24 @@
+
+#bulbImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+.container {
+text-align: center;
+}
+.container {
+    padding: 20px;
+}
+
+button {
+display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+box-shadow: 4px 4px 4px 0 rgba(46, 61, 73, 0.13);
+    border-radius: 0.25rem;
+    letter-spacing: 0.09375rem;
+    background: #fff;
+}
