@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Image</title>
+</head>
+<body>
+    <h1>ВАСЬКА</h1>
+    <p> <button id="changeImageButton">Збільшити</button> </p> <img id="catImage"
+        src="https://images.squarespace-cdn.com/content/v1/5c6494bbf4e5310e57b3de34/1623557067947-PN4CQHL8B84UEXR4K9CP/Capture.PNG"
+        alt="Cat Vaska" />
+        <script> 
+            const catImage = document.getElementById("catImage"); 
+            const changeImageButton = document.getElementById("changeImageButton"); 
+            changeImageButton.addEventListener("click", changeImage); 
+            catImage.addEventListener("click", changeImage); 
+            function changeImage() { 
+                if (catImage.src.includes("https://cdn.britannica.com/30/150930-120-D3D93F1E/lion-Namibia.jpg")) {
+                    catImage.src = "https://images.squarespace-cdn.com/content/v1/5c6494bbf4e5310e57b3de34/1623557067947-PN4CQHL8B84UEXR4K9CP/Capture.PNG"; 
+                    changeImageButton.textContent = "Зменшити"; 
+                    } else { 
+                        catImage.src = "https://cdn.britannica.com/30/150930-120-D3D93F1E/lion-Namibia.jpg"; changeImageButton.textContent = "Збільшити"; } 
+            } 
+        </script>
+</body>
+</html>

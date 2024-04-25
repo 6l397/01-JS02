@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Завдання 1.1</title>
+    <style>
+        #row1,
+        #row3 {
+            background-color: yellow;
+            color: black;
+        }
+
+        #row2 {
+            background-color: white;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="row1">Доступ до властивостей і методів</h2>
+    <p id="row2">Колекція all</p>
+    <div id="row3">Метод getElementById ()</div>
+    <script>
+        let row1 = document.getElementById('row1');
+        let row2 = document.querySelectorAll('p')[0];
+        let row3 = document.getElementById('row3');
+        row1.addEventListener('click', function () {
+            if (row1.style.backgroundColor === 'yellow') {
+                row1.style.backgroundColor = 'blue';
+                row1.style.color = 'white';
+            } else {
+                row1.style.backgroundColor = 'yellow';
+                row1.style.color = 'black';
+            }
+        });
+
+        row2.addEventListener('click', function () {
+            if (row2.style.color === 'red') {
+                row2.style.color = 'white';
+                row2.style.backgroundColor = 'green';
+            } else {
+                row2.style.color = 'red';
+                row2.style.backgroundColor = 'white';
+            }
+        });
+        row3.addEventListener('click', function () {
+            if (row3.style.backgroundColor === 'yellow') {
+                row3.style.backgroundColor = 'blue';
+                row3.style.color = 'white';
+            } else {
+                row3.style.backgroundColor = 'yellow';
+                row3.style.color = 'black';
+            }
+        });
+    </script>
+</body>
+
+</html>
