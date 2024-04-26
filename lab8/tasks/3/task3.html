@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реакція на подію</title>
+    <style>
+        h1 {
+            color: #ff00ff;
+        }
+        #k1 {
+            position: absolute;
+            left: 50px;
+            top: 200px;
+            width: 300px;
+            height: 100px;
+            background-color: blue;
+        }
+        #k2 {
+            position: relative;
+            left: 50px;
+            top: 25px;
+            width: 200px;
+            height: 50px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body id="b" onclick="rodEl()" style="height: 600px">
+    <h1 id="hh" onclick="H_l()">Color</h1>
+    <div id="k1" onclick="D_l()">
+        <div id="k2" style="background-color: yellow" onclick="D_2(event)"> </div>
+    </div>
+    <script>
+        function H_1() {
+            var z = document.getElementById('hh').style.color;
+            if (z === "#aa00aa" || z === 'rgb(170, 0, 170)') {
+                z = "#aa00aa";
+            } else {
+                z = "#00ffff";
+            }
+            document.getElementById('hh').style.color = z;
+            var z = document.body.style.backgroundColor;
+            if (z!== "#777777") {
+                z = "#777777";
+            } else {
+                z = "#AAAAAA";
+            }
+            document.body.style.backgroundColor = z;
+        }
+
+        function D_2(event) {
+            window.event.cancelBubble = true;
+            if (event.target.id === 'k2') {
+                var z = event.target.style.backgroundColor;
+                if (z === "#00ffff") {
+                    z = "#ff00ff";
+                } else {
+                    z = "#00ffff";
+                }
+                event.target.style.backgroundColor = z;
+                var z = document.getElementById('k1').style.backgroundColor;
+                if (z === "#00ffff") {
+                    z = "#ff00ff";
+                } else {
+                    z = "#00ffff";
+                }
+                document.getElementById('k1').style.backgroundColor = z;
+            }
+        }
+
+        function D_l() {
+            window.event.cancelBubble = true;
+            var z = document.getElementById('k1').style.backgroundColor;
+            if (z === "#00ffff") {
+                z = "#ff00ff";
+            } else {
+                z = "#00ffff";
+            }
+            document.getElementById('k1').style.backgroundColor = z;
+            var z = document.body.style.backgroundColor;
+            if (z!== "#777777") {
+                z = "#777777";
+            } else {
+                z = "#AAAAAA";
+            }
+            document.body.style.backgroundColor = z;
+        }
+
+        function H_l() {
+            window.event.cancelBubble = true;
+            H_1();
+        }
+
+function rodEl() {
+            var z = document.body.style.backgroundColor;
+            if (z!== "#777777") {
+                z = "#777777";
+           } else {
+                z = "#AAAAAA";
+            }
+            document.body.style.backgroundColor = z;
+        }
+    </script>
+</body>
+
+</html>

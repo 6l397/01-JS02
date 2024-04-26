@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="alfa" align="right" onmouseover="M_Over()" onmouseout="M_Out()">Подія onMouseOver</p>
+    <script>
+    function M_Over () {
+      document.getElementById('alfa').style.textAlign = 'center';
+      document.getElementById('alfa').style.color = 'purple';
+    }
+    function M_Out () {
+      document.getElementById('alfa').style.textAlign = 'right';
+      document.getElementById('alfa').style.color = 'blue';
+    }
+    </script>
+</body>
+</html>

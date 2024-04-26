@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+}
+h1 {
+    font-size: 3em;
+    text-align: center;
+}
+#row2 {
+    font-size: 24pt;
+    color: black;
+}
+#row3 {
+    background-color: white;
+}
+#row4 {
+    background-color: #C8C9F2;
+}
