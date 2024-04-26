@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Замовлення меблів</title>
+  </head>
+  <body>
+    <h1>Замовлення меблів</h1>
+    <form onsubmit="return submitForm(event)">
+      <label for="product">Виріб:</label>
+      <select id="product" name="product">
+        <option value="">-- Виберіть виріб --</option>
+        <option value="шафа">Шафа</option>
+        <option value="стіл">Стіл</option>
+        <option value="сервант">Сервант</option>
+      </select><br /><br />
+
+      <label for="material">Матеріал:</label>
+      <select id="material" name="material">
+        <option value="">-- Виберіть матеріал --</option>
+        <option value="дуб">Дуб</option>
+        <option value="горіх">Горіх</option>
+        <option value="бук">Бук</option>
+      </select><br /><br />
+
+      <label for="quantity">Кількість:</label>
+      <input type="text" id="quantity" name="quantity" onchange="arg(this)" /><br /><br />
+
+      <input type="submit" value="Відправити замовлення" />
+    </form>
+
+    <div id="orderDetails" style="display:none;">
+      <h1>Ваше замовлення прийнято</h1>
+      <p>
+        Замовлено виріб - <span id="productDetail"></span><br />
+        Матеріал - <span id="materialDetail"></span><br />
+        Кількість - <span id="quantityDetail"></span>
+      </p>
+    </div>
+
+    <script>
+      function arg(fld) {
+        x = fld.value;
+        if (x == "") {
+          alert("Поле 'Кількість' повинно бути заповнене");
+          fld.focus();
+          fld.select();
+        }
+      }
+
+      function submitForm(event) {
+        event.preventDefault();
+
+        if (document.getElementById("product").value == "") {
+          alert("Поле 'Виріб' повинно бути заповнене");
+          return false;
+        }
+
+        if (document.getElementById("material").value == "") {
+          alert("Поле 'Матеріал' повинно бути заповнене");
+          return false;
+        }
+
+        if (document.getElementById("quantity").value == "") {
+          alert("Поле 'Кількість' повинно бути заповнене");
+          return false;
+        }
+
+        document.getElementById("orderDetails").style.display = "block";
+        document.getElementById("productDetail").innerText = document.getElementById("product").value;
+        document.getElementById("materialDetail").innerText = document.getElementById("material").value;
+        document.getElementById("quantityDetail").innerText = document.getElementById("quantity").value;
+      }
+    </script>
+  </body>
+</html>

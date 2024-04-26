@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Тригонометричні функції</title>
+  </head>
+  <body>
+    <h1>Обчислення тригонометричних функцій</h1>
+    <form onsubmit="return calculateTrigFunction(event)">
+      <label for="function">Функція:</label>
+      <select id="function" name="function">
+        <option value="sin">sin</option>
+        <option value="cos">cos</option>
+        <option value="tan">tan</option>
+      </select><br /><br />
+
+      <label for="angle">Кут (градуси):</label>
+      <input type="text" id="angle" name="angle" onchange="arg(this)" /><br /><br />
+
+      <input type="submit" value="Обчислити" />
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+      function arg(fld) {
+        x = fld.value;
+        if (x == "") {
+          alert("Поле 'Кут' повинно бути заповнене");
+          fld.focus();
+          fld.select();
+        } else {
+          x = parseFloat(x);
+          if (isNaN(x)) {
+            alert("Поле 'Кут' повинно містити число");
+            fld.focus();
+            fld.select();
+          } else {
+            fld.value = Math.round(x * 1000) / 1000;
+          }
+        }
+      }
+
+      function calculateTrigFunction(event) {
+        event.preventDefault();
+
+        if (document.getElementById("angle").value == "") {
+          alert("Поле 'Кут' повинно бути заповнене");
+          return false;
+        }
+
+        if (isNaN(document.getElementById("angle").value)) {
+          alert("Поле 'Кут' повинно містити число");
+          return false;
+        }
+
+        angle = document.getElementById("angle").value;
+        angle = angle * Math.PI / 180;
+
+        functionName = document.getElementById("function").value;
+        result = Math[functionName](angle);
+
+        document.getElementById("result").innerText = "Результат: " + result;
+      }
+    </script>
+  </body>
+</html>
