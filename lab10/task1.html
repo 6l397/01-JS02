@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Фотогалерея</title>
+  </head>
+  <body>
+    <h1>Фотогалерея</h1>
+    <select id="photo-select" onchange="prosm(this)">
+      <option value="forest">Ліс</option>
+      <option value="mountain">Гора</option>
+      <option value="sea">Море</option>
+    </select>
+    <img id="fot" src="https://img.freepik.com/free-photo/green-mountain-front-blue-sea_23-2147836747.jpg" alt="Фотографія">
+    <script>
+      var photo = new Array();
+      photo["forest"] = new Image(400, 550);
+      photo["forest"].src = "https://static.scientificamerican.com/sciam/cache/file/874F5357-9EEC-496B-AFC68A6ED21476EE_source.jpg?w=600";
+      photo["mountain"] = new Image(400, 550);
+      photo["mountain"].src = "https://img.asmedia.epimg.net/resizer/v2/MGLDLRBRJVHNFJXBK5V3ATY2OM.jpg?auth=3369b1f9a28936f517b34c9806707a3e81f904e9079dd5140a075afd2f654ad3&width=644&height=362&smart=true";
+      photo["sea"] = new Image(400, 550);
+      photo["sea"].src = "https://img.freepik.com/free-photo/seascape-texture-waves-water-generative-ai_169016-30500.jpg";
+
+      function prosm(list) {
+        var d = list.options[list.selectedIndex].value;
+        document.getElementById("fot").src = photo[d].src;
+      }
+    </script>
+  </body>
+</html>

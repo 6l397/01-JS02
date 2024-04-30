@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Еліпс</title>
+</head>
+<body>
+  <h1>Еліпс трьома способами</h1>
+  <form>
+    <label for="a">Горизонтальна піввісь (a):</label>
+    <input type="number" id="a" value="40">
+    <br>
+    <label for="b">Вертикальна піввісь (b):</label>
+    <input type="number" id="b" value="80">
+    <br>
+    <button type="button" onclick="drawEllipses()">Побудувати еліпс</button>
+  </form>
+  <div id="mosaic-container"></div>
+  <svg id="svg-container" width="400" height="400"></svg>
+  <canvas id="canvas-container" width="400" height="400"></canvas>
+
+  <script>
+    function drawEllipses() {
+      const a = document.getElementById('a').value;
+      const b = document.getElementById('b').value;
+
+      // Метод 1: Мозаїка
+      const mosaicContainer = document.getElementById('mosaic-container');
+      mosaicContainer.innerHTML = '';
+      mosaicContainer.style.position = 'relative';
+      for (let t = 0; t <= 2 * Math.PI; t += 0.01) {
+      const x = a * Math.cos(t);
+      const y = b * Math.sin(t);
+      const mosaicElement = document.createElement('div');
+      mosaicElement.className = 'mosaic';
+      mosaicElement.style.position = 'absolute'; 
+      mosaicElement.style.left = (200 + x) + 'px'; 
+      mosaicElement.style.top = (200 - y) + 'px'; 
+      mosaicContainer.appendChild(mosaicElement);
+      }
+
+      // Метод 2: SVG
+      const svgContainer = document.getElementById('svg-container');
+      const svgEllipse = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+      svgEllipse.setAttribute('cx', '200');
+      svgEllipse.setAttribute('cy', '200');
+      svgEllipse.setAttribute('rx', a);
+      svgEllipse.setAttribute('ry', b);
+      svgContainer.appendChild(svgEllipse);
+
+      // Метод 3: Canvas
+      const canvasContainer = document.getElementById('canvas-container');
+      const ctx = canvasContainer.getContext('2d');
+      ctx.beginPath();
+      ctx.ellipse(200, 200, a, b, 0, 0, 2 * Math.PI);
+      ctx.stroke();
+    }
+  </script>
+</body>
+</html>
