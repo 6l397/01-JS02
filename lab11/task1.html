@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movement</title>
+    <style>
+        #myCanvas {
+        background-color: palegreen;
+        border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const squareSize = 20;
+        const squareColor = 'palegoldenrod';
+
+        const circleRadius = 150;
+        const circleCenterX = canvas.width / 2;
+        const circleCenterY = canvas.height / 2;
+
+        let angle = 0;
+        const angleIncrement = 0.05;
+
+        const updateInterval = setInterval(() => {
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        angle += angleIncrement;
+        if (angle > 2 * Math.PI) angle -= 2 * Math.PI;
+
+        const x = circleCenterX + circleRadius * Math.cos(angle);
+        const y = circleCenterY + circleRadius * Math.sin(angle);
+
+        ctx.fillStyle = squareColor;
+        ctx.fillRect(x - squareSize / 2, y - squareSize / 2, squareSize, squareSize);
+        }, 17); 
+
+        setTimeout(() => {
+        clearInterval(updateInterval);
+        }, 5000);
+    </script>
+</body>
+</html>

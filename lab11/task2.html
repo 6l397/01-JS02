@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 500px;
+            height: 500px;
+            background-color: gray;
+            position: relative;
+        }
+        #text-container {
+            position: absolute;
+            top: 0;
+            left: 510px;
+            width: 500px;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: white;
+            color: black;
+        }
+        h2 {
+            text-align: center;
+            color: #ff00ff;
+        }
+        h3 {
+            text-align: center;
+        }
+        p {
+            text-align: right;
+        }
+        #kv {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body onload="init()">
+    <div id="container">
+        <div id="kv"></div>
+    </div>
+    <div id="text-container">
+        <h2>Перетягування квадрата мишкою</h2>
+        <h3>Встановіть курсор всередині червоного квадрата, натисніть ліву кнопку мишки і тягніть квадрат. <br> Для звільнення квадрата від захоплення відпустіть мишку </h3>
+        <p> Примітка: Сторінка правильно відображається в браузерах <i> Mozilla Firefox 2.0 </i> і <i>Internet Explorer 6.0 </i> </p>
+    </div>
+    <script>
+        let flag = false;
+        let div;
+        let shiftX;
+        let shiftY;
+        let container = document.getElementById('container');
+
+        function init() {
+            div = document.getElementById('kv');
+            div.onmousedown = zachvat;
+            document.addEventListener('mouseup', osvobodi);
+        }
+
+        function zachvat(evt) {
+            flag = true;
+            let sobytie = (evt)? evt : window.event;
+            let coords = getCoords(div);
+            shiftX = sobytie.clientX - coords.left;
+            shiftY = sobytie.clientY - coords.top;
+
+            document.addEventListener('mousemove', moveAt);
+        }
+
+        function moveAt(event) {
+            let left = event.pageX - shiftX;
+            let top = event.pageY - shiftY;
+
+            if (left < 0) left = 0;
+            if (top < 0) top = 0;
+            if (left + div.offsetWidth > container.offsetWidth)
+                left = container.offsetWidth - div.offsetWidth;
+            if (top + div.offsetHeight > container.offsetHeight)
+                top = container.offsetHeight - div.offsetHeight;
+
+            div.style.left = left + 'px';
+            div.style.top = top + 'px';
+        }
+
+        function osvobodi() {
+            flag = false;
+            document.removeEventListener('mousemove', moveAt);
+        }
+
+        function getCoords(elem) { 
+            let box = elem.getBoundingClientRect();
+            return {
+                top: box.top + window.pageYOffset,
+                left: box.left + window.pageXOffset
+            };
+        }
+    </script>
+</body>
+</html>
