@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task6</title>
+</head>
+<body>
+<p id="sizeDisplay"></p>
+
+<script>
+  function updateSizeDisplay() {
+    const sizeDisplay = document.getElementById("sizeDisplay");
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    sizeDisplay.textContent = `Width: ${width}, Height: ${height}`;
+  }
+
+  window.addEventListener("resize", updateSizeDisplay);
+  updateSizeDisplay();
+</script>
+</body>
+</html>

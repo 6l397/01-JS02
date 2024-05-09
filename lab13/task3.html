@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task3</title>
+  <style>
+    body {
+      transition: background-color 0.5s;
+    }
+  </style>
+</head>
+<body>
+<button id="btn1">Button 1</button>
+<button id="btn2">Button 2</button>
+<button id="btn3">Button 3</button>
+<a id="link" href="#">Link</a>
+
+<script>
+  const btn1 = document.getElementById('btn1');
+  const btn2 = document.getElementById('btn2');
+  const btn3 = document.getElementById('btn3');
+  const link = document.getElementById('link');
+
+  btn1.addEventListener('click', () => {
+    document.body.style.backgroundColor = 'blue';
+  });
+
+  btn2.addEventListener('dblclick', () => {
+    document.body.style.backgroundColor = 'pink';
+  });
+
+  btn3.addEventListener('mousedown', () => {
+    document.body.style.backgroundColor = 'brown';
+  });
+
+  btn3.addEventListener('mouseup', () => {
+    document.body.style.backgroundColor = 'white';
+  });
+
+  link.addEventListener('mouseover', () => {
+    document.body.style.backgroundColor = 'yellow';
+  });
+
+  link.addEventListener('mouseout', () => {
+    document.body.style.backgroundColor = 'white';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task4</title>
+</head>
+<body>
+<select id="mySelect" >
+  <option value="option1">First</option>
+  <option value="option2">Second</option>
+  <option value="option3">Third</option>
+  <option value="option4">Fourth</option>
+</select>
+<button id="removeBtn">Remove Selected Option</button>
+
+<script>
+  const select = document.getElementById('mySelect');
+  const removeBtn = document.getElementById('removeBtn');
+
+  removeBtn.addEventListener('click', () => {
+    const selectedOption = select.options[select.selectedIndex];
+
+    selectedOption.remove();
+  });
+</script>
+</body>
+</html>

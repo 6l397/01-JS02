@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task1</title></head>
+<body>
+<button onclick="createWindow()">Create window</button>
+<script> function createWindow() {
+  const newWindow = window.open("", "", "width=300,height=300");
+  setTimeout(() => {
+    newWindow.resizeTo(500, 500);
+  }, 2000);
+  setTimeout(() => {
+    newWindow.moveTo(200, 200);
+  }, 4000);
+  setTimeout(() => {
+    newWindow.close();
+  }, 6000);
+} </script>
+</body>
+</html>

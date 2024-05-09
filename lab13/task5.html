@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task5</title>
+</head>
+<body>
+    <button id="my-button">Button</button>
+    <div id="message"></div>
+
+<script>
+  const button = document.getElementById("my-button");
+const messageElement = document.getElementById("message");
+
+button.addEventListener("click", () => {
+  messageElement.textContent = "I was pressed!";
+});
+
+button.addEventListener("mouseover", () => {
+  messageElement.textContent = "Mouse on me!";
+});
+
+button.addEventListener("mouseout", () => {
+  messageElement.textContent = "Mouse is not on me!";
+});
+</script>
+</body>
+</html>

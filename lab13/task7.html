@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task7</title>
+</head>
+<body>
+<label for="country">Country:</label>
+<select name="country" id="country">
+  <option value="Germany">Germany</option>
+  <option value="USA">USA</option>
+  <option value="Ukraine">Ukraine</option>
+</select>
+<br>
+<label for="cities">City:</label>
+<select name="cities" id="cities"></select>
+<br>
+<p id="selection"></p>
+
+<script>
+    const countrySelect = document.getElementById("country");
+const citySelect = document.getElementById("cities");
+const selectionDisplay = document.getElementById("selection");
+
+const cities = {
+    Germany: ["Berlin", "Munich", "Hamburg"],
+    USA: ["New York", "Los Angeles", "Chicago"],
+    Ukraine: ["Kyiv", "Chernigiv", "Chernivrsi"]
+};
+
+function updateCitySelect(country) {
+  citySelect.innerHTML = "";
+  const countryCities = cities[country];
+  if (countryCities) {
+    for (const city of countryCities) {
+      const option = document.createElement("option");
+      option.value = city;
+      option.textContent = city;
+      citySelect.appendChild(option);
+    }
+  }
+}
+
+function updateSelectionDisplay() {
+  const country = countrySelect.value;
+  const city = citySelect.value;
+  selectionDisplay.textContent = `Selected: ${country}, ${city}`;
+}
+
+countrySelect.addEventListener("change", (event) => {
+  const country = event.target.value;
+  updateCitySelect(country);
+  updateSelectionDisplay();
+});
+
+citySelect.addEventListener("change", updateSelectionDisplay);
+
+updateCitySelect(countrySelect.value);
+updateSelectionDisplay();
+
+</script>
+</body>
+</html>
