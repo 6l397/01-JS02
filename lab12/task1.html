@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trigonometric Function</title>
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+		th, td {
+			border: 1px solid #ddd;
+			padding: 8px;
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+	<h1>Trigonometric Function</h1>
+	<form id="input-form">
+		<label for="function">Select a function:</label>
+		<select id="function" name="function">
+			<option value="sin">sin</option>
+			<option value="cos">cos</option>
+			<option value="tg">tg</option>
+		</select>
+		<br><br>
+		<label for="start-angle">Start angle (degrees):</label>
+		<input type="text" id="start-angle" name="start-angle" onchange="validateInput(this)">
+		<br><br>
+		<label for="end-angle">End angle (degrees):</label>
+		<input type="text" id="end-angle" name="end-angle" onchange="validateInput(this)">
+		<br><br>
+		<label for="step">Step (degrees):</label>
+		<input type="text" id="step" name="step" onchange="validateInput(this)">
+		<br><br>
+		<button type="button" onclick="generateTable()">Calculate</button>
+	</form>
+	<div id="table-container"></div>
+
+	<script src="task1.js"></script>
+</body>
+</html>
