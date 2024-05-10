@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task4</title>
+</head>
+<body>
+  <input type="checkbox" id="Tom" name="Tom">
+  <label for="Tom">Tom</label><br>
+  <input type="checkbox" id="Sam" name="Sam">
+  <label for="Sam">Sam</label><br>
+  <input type="checkbox" id="Ray" name="Ray">
+  <label for="Ray">Ray</label><br>
+  <input type="checkbox" id="Bob" name="Bob">
+  <label for="Bob">Bob</label><br>
+  <input type="checkbox" id="Amina" name="Amina">
+  <label for="Amina">Amina</label><br>
+  <input type="checkbox" id="Artem" name="Artem">
+  <label for="Artem">Artem</label><br>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let arr = ["Tom", "Sam", "Ray", "Bob", "Amina", "Artem"];
+      let [x, y, ...z] = arr;
+
+      let checkboxes = document.querySelectorAll('input[type=checkbox]');
+      let checkedCount = 0;
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', (event) => {
+          if (event.target.checked) {
+            checkedCount++;
+          } else {
+            checkedCount--;
+          }
+
+          if (checkedCount === 3) {
+            checkboxes.forEach((checkbox) => {
+              checkbox.disabled = true;
+            });
+          } else {
+            checkboxes.forEach((checkbox) => {
+              checkbox.disabled = false;
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
